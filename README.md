@@ -2,6 +2,27 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# 招聘系统
+
+## 功能
+
+* 页面头尾导航页面跳转；
+* 职位列表展示；
+* 职位搜索；
+* 职位详情介绍；
+* 弹窗应聘信息；
+
+### 技术栈
+
+1. React构建页面；
+2. React-lazy优化懒加载；
+3. react-router-dom 页面相关路由跳转；
+4. webpack打包构建，项目开发编译代码优化；
+    * 图片资源优化；
+    * 项目分包构建；
+    * alias路径配置；
+    * 代码压缩和优化；
+5. postcss支持scss语法，autoprefixer等；
 ## Available Scripts
 
 In the project directory, you can run:
