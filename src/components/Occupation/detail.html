@@ -1,0 +1,221 @@
+<!-- 引入头部公共区域 -->
+<include file="Public:headerRecruit" />
+<style>
+    .job-con .job-conwrap {
+        margin-top: 35px;
+        line-height: 2;
+    }
+    .searchBtn {
+        width: 100px;
+        padding: 14px 24px;
+        background-color: #059e3e;
+        font-size: 24px;
+        line-height: 1;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        vertical-align: top;
+    }
+    .search-box input[name="search"],
+    .searchBtn {
+        float:left;
+    }
+</style>
+    <!-- #silderArea轮播图区域 -->
+    <div id="wraper">
+        
+    </div>
+    <!-- #silderArea轮播图区域结束 -->
+    <!-- main主体内容区域 -->
+    <div id="recruitPage" className="main">
+        <div id="searchArea">
+            <div className="search-box clear-fix">
+                <input name="search" value="" placeholder="请输入职位关键字" />
+                <a href="javascript:;" className="searchBtn">搜索职位</a>
+            </div>
+        </div>
+        <div className="box-warp" id="box-warp">
+            <!--<h1>Android 开发经理</h1>
+            <div className="job-con">
+                <p>
+                    <strong>岗位职责</strong>
+                    <br/> 1、 负责Android端技术架构搭建，功能模块设计、开发和优化；
+                    <br/> 2、 与产品管理、测试和其他团队协作，分析产品需求，制定技术方案，攻克技术难题；
+                    <br/> 3、 负责android技术团队的建设、管理，保障项目开发进度；
+                    <br/>
+                    <br/>
+                    <strong>职位要求</strong>
+                    <br/> 1、 大学本科及以上学历，2年以上团队管理或项目管理经验；
+                    <br/> 2、 熟悉移动互联网行业及产品技术，熟悉C++、Android等平台；
+                    <br/> 3、 具有4年android系统开发规划经验，有独立承担APP产品研发管理经验或者能力；
+                    <br/> 4、 良好的良好的沟通能力和优秀的团队协作能力。
+                    <br/>
+                    <br/> 工作地点：厦门
+                </p>
+                <input type="button"  name="applyBtn" className="applyBtn"  value="我要应聘"/>
+            </div>-->
+        </div>
+    </div>
+    <div className="mask"></div>
+        <div className="pop-box">
+            <h3>DEAR:<span className="close"><img src="/statics/recruit/images/close.jpg" width="17" height="17"  alt="数据demo招聘"/></span></h3>
+            <div className="pop-con">
+                <p>很高兴遇见你~同时我们希望与你有合作的机会！以下通道方便您与我们取得联系：</p>
+                <ul>
+                    <li className="mail">简历收取邮箱：<a href="mailto:hr@feibo.cn"><em>{$ab.email}</em></a></li>
+                    <li className="QQ">招聘问询QQ：<em>{$ab.qq}</em></li>
+                    <li className="wechat">微信公众号：搜索“<em>{$ab.wechat}</em>”</li>
+                    <li>（公众号可以查询面试结果哦~）</li>
+                </ul>
+        </div>
+    </div>
+    <!-- #main主体内容区域结束 -->
+    <!-- 引入尾部公共区域 -->
+    <include file="Public:footerRecruit" />
+    <!-- 引入js -->
+    <script src="http://img1.static.feibo.com/double11/jquery-1.8.0.min.js"></script>
+	<script src="__ROOT__/statics/react/react.js"></script>
+    <script src="__ROOT__/statics/react/react-dom.js"></script>
+    <script src="__ROOT__/statics/react/browser.min.js"></script>
+    <script type="text/javascript" src="/statics/recruit/js/silder.js"></script>
+    <script type="text/javascript" src="/statics/recruit/js/index.js"></script>
+	<script type="text/babel">
+        // 轮播图请求接口
+        var SlideBox = React.createClass({
+            getInitialState : function() {
+                return {data: []};
+            },
+            loadDataFromServer : function() {
+                $.ajax({
+                    url : this.props.url,
+                    data : {
+                        is_ajax : 1
+                    },
+                    dataType : 'json',
+                    type : 'get',
+                    success : function(data){
+                        this.setState({data:data.result});
+                    }.bind(this),
+                    error : function(xhr,status,err) {
+                        console.log(this.props.url, status, err.toString());
+                    }.bind(this),
+                })
+            },
+            componentDidMount : function() {
+                this.loadDataFromServer();
+            },
+            render : function() {
+                var SlideMod = this.state.data.map(function(slide){
+                    return (
+                        <li key={slide.slide_id}><img src={slide.slide_img} alt="数据demo" /></li>
+                    )
+                })
+                return (
+                    <ul className="silderBox">
+                        <div id="silderArea">
+                            <ul className="silderBox clear-fix">
+                                {SlideMod}
+                            </ul>
+                            <ul className="silderNum clear-fix">
+                                <li className="active">
+                                    <a href="javascript:;"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:;"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                )
+            }
+        })
+
+        ReactDOM.render(
+            <SlideBox url="api.php?m=Slide&a=getImg" />,
+            document.getElementById("wraper")
+        )
+        // 获取职位详情
+		var DataBox = React.createClass({
+            getQueryString :function(name,url){
+                if (!url) url = location.href;
+                name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+                var regexS = "[\\?&]"+name+"=([^&#]*)";
+                var regex = new RegExp( regexS );
+                var results = regex.exec( url );
+                return results == null ? null : results[1];
+            },
+            getInitialState : function() {
+                return {data: []};
+            },
+			loadDataFromServer : function() {
+				$.ajax({
+					url : this.props.url,
+					type : 'get',
+					data : {
+						occupation_id : this.getQueryString("occupation_id",window.location.href),
+						is_ajax : 1
+					},
+					dataType : 'json',
+					success : function(data) {
+						this.setState({data: data.result});
+					}.bind(this),
+					error : function(xhr,status,err) {
+						console.log(this.props.url, status, err.toString());
+					}.bind(this),
+				});
+			},
+            componentDidMount : function() {
+                this.loadDataFromServer();
+            },
+            render : function() {
+                return (
+                    <DataList data={this.state.data} getQueryString={this.getQueryString} />
+                );
+            }
+		})
+
+        var DataList = React.createClass({
+            clickMe : function() {
+                $(".pop-box,.mask").show();
+            },
+            render : function() {
+                $("#duty").html(this.props.data.occupation_duty);
+                $("#require").html(this.props.data.occupation_require);
+                var parame = this.props.getQueryString('occupation_id');
+                $(".searchBtn").on("click",function(){
+                    window.location.href = "/api.php?m=Occupation&a=index&occupation_id="+parame+"#recruitPage";
+                 })
+                return (
+                    <div className="job">
+                        <h1>{this.props.data.occupation_name}</h1>
+                        <div className="job-con">
+                            <div className="job-conwrap">
+                                <strong>岗位职责</strong>
+                                <div id="duty"></div>
+                            </div>
+                            <div className="job-conwrap">
+                                <strong>岗位要求</strong>
+                                 <div id="require"></div>
+                            </div>
+                            <p>工作地点：{this.props.data.occupation_city}</p>
+                            <input type="button"  name="applyBtn" className="applyBtn" value="我要应聘" onClick={this.clickMe} />
+                        </div>
+                    </div>
+                )
+            }
+        })
+		
+		ReactDOM.render(
+			<DataBox url="api.php?m=Occupation&a=officeDetail" />,
+			document.getElementById('box-warp')
+		);
+	</script>
+</body>
+	
+</html>

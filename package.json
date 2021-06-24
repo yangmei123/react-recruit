@@ -3,19 +3,32 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/preset-env": "^7.14.7",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "clean-webpack-plugin": "^4.0.0-alpha.0",
+    "css-loader": "^3.0.0",
+    "postcss": "^8.3.5",
+    "postcss-loader": "^4.0.0",
+    "precss": "^4.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build:alpha": "webpack --mode=alpha",
+    "build:production": "webpack --mode=production",
+    "dev": "webpack-dev-server --mode=development --inline --hot --host 0.0.0.0 --port 8008",
+    "start": "npm run dev",
+    "start:production": "webpack-dev-server --mode=production --inline --hot --host 0.0.0.0 --port 8008"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +47,14 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@intervolga/optimize-cssnano-plugin": "github:intervolga/optimize-cssnano-plugin",
+    "babel-preset-react": "^6.24.1",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "react-router-dom": "^5.2.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2"
   }
 }
