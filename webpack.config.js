@@ -33,7 +33,7 @@ const config = (mode = 'development') =>  {
     },
     module: {
       rules: [{
-          test: /\.css$/,
+          test: /\.(css|scss)$/,
           exclude: /(node_modules|bower_components)/,
           use: ExtractTextPlugin.extract({
             fallback: "style-loader",

@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+/* 搜索框 */
+#searchArea {
+  padding: 48px 0 42px;
+  background-color: #fafafa; }
+
+.search-box {
+  width: 650px;
+  margin: 0 auto;
+  padding: 9px 10px;
+  border-radius: 5px;
+  background-color: #e6e6e6; }
+  .search-box input[name="search"] {
+    width: 460px;
+    height: 24px;
+    padding: 14px 15px;
+    margin-right: 10px;
+    border-radius: 5px;
+    font-size: 18px;
+    color: #727171; }
+  .search-box input[name="searchBtn"] {
+    width: 100px;
+    padding: 14px 24px;
+    background-color: #059e3e;
+    font-size: 24px;
+    line-height: 1;
+    *padding: 9px 24px;
+    *width: 140px; }
+  .search-box input[name="searchBtn"]:hover {
+    background-color: #8ac438; }
+
+input {
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif; }
+
+input[type="button"] {
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  vertical-align: top; }

@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+.off-tab {
+  margin-top: 35px;
+  text-align: center;
+  font-size: 16px; }
+  .off-tab thead {
+    font-size: 24px;}
+  .off-tab th, .off-tab td {
+    padding: 15px; }
+  .off-tab th {
+    font-weight: normal;
+    border-bottom: 1px solid #e6e6e6; }
+  .off-tab .o-name {
+    width: 338px; }
+  .off-tab .o-part {
+    width: 275px; }
+  .off-tab .o-address {
+    width: 269px; }
+  .off-tab .o-request {
+    width: 321px; }
+  .off-tab .btn-detail {
+    padding: 8px 9px;
+    border-radius: 3px;
+    font-size: 14px;
+    line-height: 1;
+    background-color: #059e3e;
+    a {
+      color: #fff;
+    } }
+  .off-tab .btn-detail:hover {
+    background-color: #8ac438; }
+  .off-tab .new {
+    position: relative; }
+  .off-tab .new:after {
+    content: "";
+    position: absolute;
+    right: -35px;
+    top: 6px;
+    width: 28px;
+    height: 11px;
+    background: url(~@/assets/images/icon_bg.png) -86px top no-repeat; }
+
+.load {
+  padding: 35px 0 45px;
+  text-align: center; }
+
+
+
+
+
+
+
+
+

@@ -1,13 +1,16 @@
 import React from 'react';
 import loadGif from '@/assets/images/load.gif';
-import SearchBox from './SearchBox';
+import SearchBox from '@/components/search/SearchBox';
 import { Link, HashRouter } from 'react-router-dom';
 import { recruitDetail } from '@/constants/PagePath';
+
+import '@/styles/recruit/recruit.scss';
 
 class Recruit extends React.Component {
     constructor(props){
         super(props)
         this.keyWord = '';
+        this.popShow = 'false';
       }
     getJobList = ({keyWord}) => {
         this.setState({
@@ -29,6 +32,8 @@ class Recruit extends React.Component {
             area: 'zp'
         }]
     }
+
+
     render() {
         return (
             <div id="recruitPage" className="main">

@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+/* 弹出框 */
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 4;
+  display: none;
+  width: 100%;
+  height: 100%;
+  opacity: .2;
+  filter: alpha(opacity=20);
+  background-color: #000; }
+
+.pop-box {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 360px;
+  transform: translate(-50%, -50%);
+  padding: 35px 30px;
+  border-radius: 10px;
+  background-color: #fff;
+  z-index: 5;
+  font-size: 16px;
+  line-height: 2.4;
+  -webkit-box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); }
+  .pop-box h3 {
+    position: relative;
+    line-height: 1;
+    margin-bottom: 10px; }
+    .pop-box h3 span {
+      position: absolute;
+      top: -25px;
+      right: -16px;
+      cursor: pointer; }
+  .pop-box .pop-con {
+    padding-left: 18px; }
+  .pop-box ul > li {
+    position: relative;
+    padding-left: 33px; }
+  .pop-box ul > li:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 26px;
+    width: 26px;
+    margin-top: -13px; }
+  .pop-box ul > .mail:before {
+    background: url(~@/assets/images/icon_bg.png) -117px 0 no-repeat; }
+  .pop-box ul > .QQ:before {
+    background: url(~@/assets/images/icon_bg.png) -117px -72px no-repeat; }
+  .pop-box ul > .wechat:before {
+    background: url(~@/assets/images/icon_bg.png) -117px -36px no-repeat; }
+  .pop-box em {
+    color: #a6d169; }
+
+
+
+
+
+
+
+
+
+
