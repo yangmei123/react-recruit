@@ -26,7 +26,7 @@ const config = (mode = 'development') =>  {
     },
     resolve: {
       alias: {
-        'urlConfig$': path.resolve(__dirname, `config/urlConfig.${mode}.js`),
+        'urlConfig$': path.resolve(__dirname, `src/config/urlConfig.${mode}.js`),
         '@': resolve('src'),
       },
       extensions: ['.js']

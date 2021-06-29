@@ -18,7 +18,18 @@ const __urlConfig = {
   redirectUrl: 'https://wxoauth.cccwei.com', 
   stateUrl: 'http,192.168.44.34:8008,index,scope,snsapi_userinfo',
   remoteUrl: 'http://img.starmoly.cccwei.com/advertise',
-  collectUserInfoApiHost: 'https://api-h5.starmoly.cccwei.com/'
+  collectUserInfoApiHost: 'https://api-h5.starmoly.cccwei.com/',
+  // rap拦截设置
+  rap: {
+    rapURL: 'http://rap2.feibo.cc:38080/app/mock/49/',
+    rapMode: 3, // rapMode：0 - 不拦截；   1 - 拦截全部；   2 - 黑名单中的项不拦截；   3 - 仅拦截白名单中的项
+    rapWhiteList: [
+      'recruit'
+    ],
+    rapBlackList: [],
+    rapFilterHeaders: ['token'],
+    rapFilterMethods: []
+  }
 };
 
 module.exports = __urlConfig;

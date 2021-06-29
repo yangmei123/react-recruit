@@ -12,17 +12,20 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * 职位详情介绍；
 * 弹窗应聘信息；
 
-### 技术栈
+### 技术点
 
-1. React构建页面；
-2. React-lazy优化懒加载；
-3. react-router-dom 页面相关路由跳转；
-4. webpack打包构建，项目开发编译代码优化；
+* React构建页面；
+* React-lazy优化懒加载；
+* react-router-dom 页面相关路由跳转；
+* webpack打包构建，项目开发编译代码优化；
     * 图片资源优化；
     * 项目分包构建；
     * alias路径配置；
     * 代码压缩和优化；
-5. postcss支持scss语法，autoprefixer等；
+* postcss支持scss语法，autoprefixer等；
+* axios请求拦截；
+* rap相关mock数据接入；
+* 根据不同的生产环境获取相关配置；
 ## Available Scripts
 
 In the project directory, you can run:
