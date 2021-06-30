@@ -37,39 +37,30 @@ body {
   height: 100px;
   overflow: hidden;
   background-color: #fff;
-  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15); }
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .15);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .15); }
   #header .logo {
-    float: left;
-    display: inline;
-    width: 340px;
-    height: 48px;
+    @apply inline-flex;
     padding: 26px 0;
-    /*background: url(~@/assets/images/logo.png) left 26px no-repeat;*/
     line-height: 1;
     overflow: hidden; }
     #header .logo img, #header .logo span {
       display: inline-block; }
     #header .logo span {
-      position: absolute;
-      margin-left: 18px;
       margin: 8px 0 0 20px;
       padding: 7px 0 7px 18px;
       font-size: 24px;
       color: #bfbfbf;
       border-left: 1px solid #f2f2f2; }
 
-.header-nav {
-  display: flex;
-  justify-content: flex-end;
-  }
   .header-nav li a {
+    @apply block;
     width: 104px;
     padding: 35px 0;
     border-top: 3px solid #fff;
     font-size: 18px;
-    text-align: center;
-    transition: all 0.8s; }
+    @apply text-center;
+    transition: all .8s; }
   .header-nav li.active a, .header-nav li a:hover {
     color: #81bf29;
     border-top: 3px solid #81bf29;
@@ -79,12 +70,9 @@ body {
 #footer {
   padding: 45px 0 40px;
   background-color: #fafafa; }
-  #footer .box-warp {
-    display: flex;
-  }
   #footer .page-list {
     width: 240px;
-    text-align: center;}
+    @apply text-center;}
     #footer .page-list h3 {
       padding: 10px 0;
       font-size: 18px; }
@@ -125,46 +113,4 @@ body {
 
 .disBlock {
   display: block; }
-
-/* 搜索框 */
-#searchArea {
-  padding: 48px 0 42px;
-  background-color: #fafafa; }
-
-.search-box {
-  width: 650px;
-  margin: 0 auto;
-  padding: 9px 10px;
-  border-radius: 5px;
-  background-color: #e6e6e6; }
-  .search-box input[name="search"] {
-    width: 460px;
-    height: 24px;
-    padding: 14px 15px;
-    margin-right: 10px;
-    border-radius: 5px;
-    font-size: 18px;
-    color: #727171; }
-  .search-box input[name="searchBtn"] {
-    width: 100px;
-    padding: 14px 24px;
-    background-color: #059e3e;
-    font-size: 24px;
-    line-height: 1;
-    *padding: 9px 24px;
-    *width: 140px; }
-  .search-box input[name="searchBtn"]:hover {
-    background-color: #8ac438; }
-
-input {
-  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif; }
-
-input[type="button"] {
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
-  vertical-align: top; }
 

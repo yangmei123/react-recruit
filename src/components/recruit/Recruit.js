@@ -53,7 +53,7 @@ class Recruit extends React.Component {
                 </td>
             </tr>); 
         return (
-            <div id="recruitPage" className="main">
+            <div id="recruitPage" className="main 1/2screen">
             <SearchBox getJobList={this.getJobList} />
             <div className="box-warp office-box">
                 <table className="off-tab">

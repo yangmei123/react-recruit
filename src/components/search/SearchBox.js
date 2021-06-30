@@ -5,7 +5,7 @@ class SearchBox extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            keyWord : '123'
+            keyWord : ''
         };
     }
     getJobList = () => {
@@ -19,7 +19,7 @@ class SearchBox extends React.Component{
     render() {
         return (
             <div id="searchArea" name="searchArea">
-                <div className="search-box clear-fix">
+                <div className="search-box flex justify-around">
                     <input name="search" placeholder="请输入职位关键字" onChange={ this.setKeyWord } />
                     <input type="button" name="searchBtn" value="搜索职位" onClick={ this.getJobList } />
                 </div>

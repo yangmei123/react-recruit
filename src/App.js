@@ -15,8 +15,9 @@ const Recruit = recruit().component;
 
 function App() {
   return (
-    <div className="App">
+    <div className="App dark:bg-black">
       <Header></Header>
+      <div className="main">
         <HashRouter>
           <Suspense fallback={<div>Loading...</div>}>
             <Switch>
@@ -26,6 +27,7 @@ function App() {
             </Switch>
           </Suspense>
         </HashRouter>
+      </div>
       <Footer></Footer>
     </div>
   );

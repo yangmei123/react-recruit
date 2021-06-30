@@ -26,6 +26,32 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * axios请求拦截；
 * rap相关mock数据接入；
 * 根据不同的生产环境获取相关配置；
+* 引入tailwind 优化css编写、摇树、减少css体积[为什么要使用自我理解笔记](https://note.youdao.com/s/ISxeikaI)；
+
+## 遇到部分问题
+
+Q: clean-webpack-plugin 3.0以上报错，TypeError: CleanWebpackPlugin is not a constructor；
+Error: clean-webpack-plugin only accepts an options object. 
+
+A:新版的引用方式已改成 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+使用：new CleanWebpackPlugin() 无需带文件夹名称，clean-webpack-plugin 預設的刪除目錄為 output.path 指定的目錄；
+
+Q: react-route-dom 4.0以后
+
+A: 
+* 嵌套的路由需要单独放置在嵌套的根component中去处理路由，否则会一直有warning:You should not use <Route component> and <Route children> in the same route
+* 不允许在`Router`外部使用`Link`；需要使用BrowserRouter或HashRouter对Link进行包裹；
+
+Q：react-lazy 报错Uncaught Error: A React component suspended while rendering, but no fallback UI was specified.
+
+A: React.lazy 需要配合 Suspense 组件一起使用，在 <Suspense fallback={<div>抱歉，请耐心等待 Loading...</div>}></Suspense> 组件中渲染 React.lazy 异步加载的组件必填fallback。
+
+Q：tailwindcss Error: PostCSS plugin tailwindcss requires PostCSS 8.
+
+A：安装[postCSS 7 兼容性版本](https://docs.tailwindchina.com/docs/installation#post-css-7).
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:

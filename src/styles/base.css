@@ -45,20 +45,6 @@ a {
     text-decoration: none;
     color: #727171;
 }
-
-.clear-fix {
-    *zoom: 1;
-}
-
-.clear-fix:before,
-.clear-fix:after {
-    content: "";
-    display: table;
-}
-
-.clear-fix:after {
-    clear: both;
-}
 * , ::active, ::focus {
     -webkit-tap-highlight-color: transparent!important;
     -webkit-focus-ring-color: transparent!important;
@@ -69,8 +55,5 @@ em, i {
 }
 a{
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-.disn {
-    display: none
 }
 

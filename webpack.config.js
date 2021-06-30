@@ -6,7 +6,7 @@
  * 使用CleanWebpackPlugin清空文件夹
  */
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
@@ -70,6 +70,7 @@ const config = (mode = 'development') =>  {
         chunks: ['index']
       }),
       new ExtractTextPlugin('[name].[hash].css'),
+      new CleanWebpackPlugin()
     ]
   }
 };
@@ -98,8 +99,7 @@ module.exports = (env, argv) => {
           },
           except: ['$super', '$', 'exports', 'require'] //混淆,并排除关键字
         }
-      }),
-      new CleanWebpackPlugin(['build'])
+      })
     );
   }
   return config(argv.mode);

@@ -3,7 +3,7 @@ import React from 'react';
 const Footer = () =>  {
     return (
         <div id="footer">
-            <div className="box-warp clear-fix">
+            <div className="box-warp flex">
                 <div className="page-list">
                     <div>
                         <h3><a href="#">解读</a></h3>

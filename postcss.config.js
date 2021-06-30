@@ -1,14 +1,15 @@
 /**
  * 
  * @authors lml (you@example.org)
- * @date    2019-02-22 17:38:27
+ * @date    2021-06-24
  * @version $Id$
  */
 
 module.exports = {
     plugins: {
-        "precss": {},
-        "autoprefixer": {},
+        'tailwindcss': {},
+        'precss': {},
+        'autoprefixer': {},
         // "postcss-px-to-viewport": {
         //     unitToConvert: "px", // 默认值`px`，需要转换的单位
         //     viewportWidth: 750,//视窗的宽度，对应的是我们设计稿的宽度

@@ -4,7 +4,7 @@
 }
 .off-tab {
   margin-top: 35px;
-  text-align: center;
+  @apply text-center;
   font-size: 16px; }
   .off-tab thead {
     font-size: 24px;}
@@ -45,7 +45,8 @@
 
 .load {
   padding: 35px 0 45px;
-  text-align: center; }
+  @apply text-center; }
+
 
 
 
