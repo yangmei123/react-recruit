@@ -17,10 +17,10 @@ const Footer = () =>  {
                 <div className="page-list">
                     <div>
                         <h3><a href="#">产品体系</a></h3>
-                    <ul>
-                            <li>相生一课</li>
-                            <li>相生美物</li>
-                            <li>冷笑话精选</li>
+                        <ul>
+                            <li>XXXX</li>
+                            <li>XXXX</li>
+                            <li>XXXXXX</li>
                         </ul>
                     </div>
                 </div>

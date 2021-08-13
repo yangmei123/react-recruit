@@ -10,7 +10,7 @@ class Recruit extends React.Component {
     render() {
         return (
         <div>
-            <div className="mask fixed top-0 left-0 z-10" style={{display:this.props.show ? 'inline-block' : 'none'}}></div>
+            <div className="mask fixed top-0 left-0 z-5" style={{display:this.props.show ? 'inline-block' : 'none'}}></div>
             <div className="pop-box" style={{display:this.props.show ? 'inline-block' : 'none'}}>
                 <h3>DEAR:<span className="close" onClick={this.hide}><img src={closeImage} width="17" height="17"  alt="招聘"/></span></h3>
                 <div className="pop-con">

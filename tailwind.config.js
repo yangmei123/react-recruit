@@ -14,7 +14,10 @@ module.exports = {
     extend: {
       minHeight: {
         '1/2screen': '50vh'
-       }
+      },
+      zIndex: {
+        '5': '5'
+      }
     },
   },
   variants: {
