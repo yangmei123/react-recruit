@@ -31,6 +31,9 @@ const config = (mode = 'development') =>  {
       },
       extensions: ['.js']
     },
+    devServer: {
+      contentBase: path.join(__dirname, 'public')
+    },
     module: {
       rules: [{
           test: /\.(css|scss)$/,

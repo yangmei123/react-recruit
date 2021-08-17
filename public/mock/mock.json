@@ -1,0 +1,70 @@
+{
+    "data": {
+        "total": 1,
+        "page": 1,
+        "items": [
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 1
+            }, 
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 2
+            },
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 3
+            },
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 4
+            },
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 5
+            },
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 6
+            },
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 7
+            },
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 8
+            },
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 9
+            },
+            {
+                "name": "研发岗",
+                "department": "部门",
+                "area": "厦门",
+                "id": 10
+            }],
+        "pageSize": 1
+    },
+        "code": 200,
+        "massage": ""
+}

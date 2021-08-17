@@ -24,7 +24,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     * 代码压缩和优化；
 * postcss支持scss语法，autoprefixer等；
 * axios请求拦截；
-* rap相关mock数据接入；
+* rap相关mock数据接入/静态json引入；
 * 根据不同的生产环境获取相关配置；
 * 引入tailwind 优化css编写、摇树、减少css体积[为什么要使用自我理解笔记](https://note.youdao.com/s/ISxeikaI)；
 
@@ -50,7 +50,11 @@ Q：tailwindcss Error: PostCSS plugin tailwindcss requires PostCSS 8.
 
 A：安装[postCSS 7 兼容性版本](https://docs.tailwindchina.com/docs/installation#post-css-7).
 
+Q：项目中通过请求获取静态文件时，要注意。webpack里devServer的配置。很多cli已经做了处理，是在public里。如果是自己配置的webpack.config.js，可在以下配置里设置静态文件的目录：
 
+A：devServer: {
+  contentBase: path.join(__dirname, "public"),
+}
 
 ## Available Scripts
 

@@ -16,7 +16,7 @@
   redirectUrl: 'http://xxx.xxx.com',
   // rap拦截设置
   rap: {
-    rapURL: 'http://rap2.feibo.cc:38080/app/mock/51/',
+    rapURL: 'http://localhost:3000/',
     rapMode: 3, // rapMode：0 - 不拦截；   1 - 拦截全部；   2 - 黑名单中的项不拦截；   3 - 仅拦截白名单中的项
     rapWhiteList: [
       'recruit/list'
