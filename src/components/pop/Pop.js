@@ -2,7 +2,7 @@ import React from 'react';
 import closeImage from '@/assets/images/close.jpg';
 import '@/styles/pop/pop.scss';
 
-class Recruit extends React.Component {
+class Pop extends React.Component {
     // 通知父组件已经触发关闭弹窗事件
     hide = () => {
         this.props.hide();
@@ -28,4 +28,4 @@ class Recruit extends React.Component {
     }
 };
 
-export default Recruit;
+export default Pop;

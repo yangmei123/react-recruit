@@ -1,0 +1,32 @@
+/*
+ * 加载更多对应的样式
+ */
+ .load-more {
+   span {
+    @apply inline-block;
+    @apply ml-1;
+    @apply mr-1;
+    border-radius: 50%;
+    @apply w-3;
+    @apply h-3;
+    background: #999;
+   }
+   span:nth-child(2) {
+    animation: 1s twinkling .3s ease-in-out infinite;
+   }
+   span:nth-child(3) {
+    animation: 1s twinkling .6s ease-in-out infinite;
+   }
+    span:first-child {
+    animation: twinkling 1s ease-in-out infinite;
+   }
+ }
+
+ @keyframes twinkling{
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: .2;
+  }
+}

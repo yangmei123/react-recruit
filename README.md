@@ -11,6 +11,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * 职位搜索；
 * 职位详情介绍；
 * 弹窗应聘信息；
+* 数据下拉加载；
+* 数据请求本地文件；
 
 ### 技术点
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import loadGif from '@/assets/images/load.gif';
 import SearchBox from '@/components/search/SearchBox';
+import LoadMore from '@/components/loadMore/LoadMore';
 import { Link, HashRouter } from 'react-router-dom';
 import { recruitDetail } from '@/constants/PagePath';
 import { getRecruitList }  from '@/apis/recruit';
@@ -11,28 +12,54 @@ class Recruit extends React.Component {
     constructor(props){
         super(props)
         this.state = {
+            page: 1,
+            pageSize: 1,
             keyWord : '',
-            popShow : false,
             recruitList : [], 
-            loading: true
+            loading: true,
+            loadMoreShow: true
         };
       }
     componentDidMount() {
         this.getJobList();
     }
-    getJobList = ({keyWord} = {}) => {
+    loadMoreRequest = () => {
+        this.getJobList('', false, true);
+    }
+    searchRequest = ({keyWord} = {}) => {
         this.setState({
             keyWord
         });
-        getRecruitList({ keyWord }).then((res = {})=> {
-            const { data: { items }} = res;
+        this.getJobList(keyWord, true);
+    }
+    getJobList = (keyWord, reset = false, loadMore = false) => {
+        if (reset) {
             this.setState({
-                recruitList: items
+                page: 1,
+                pageSize: 1
+            });
+        }
+        const { state: { page, pageSize, recruitList } } = this;
+        const params = {
+            keyWord,
+            pageSize,
+            page: loadMore ? page + 1 : page
+        }
+        if (params.page > 1) this.setState({ loadMoreShow: true });
+        getRecruitList(params).then((res = {})=> {
+            const { data: { items, page: pageNum }} = res;
+            const searchResultList = pageNum === 1 && params.page === 1 ? items : recruitList.concat(items);
+            this.setState({
+                recruitList: searchResultList,
+                page: pageNum
             });
         }).finally(() => {
-            this.setState({
-                loading: false
-            });
+            setTimeout(() => {
+                this.setState({
+                    loading: false,
+                    loadMoreShow: false
+                });
+            }, 5000);
         });
     }
 
@@ -54,7 +81,7 @@ class Recruit extends React.Component {
             </tr>); 
         return (
             <div id="recruitPage" className="main 1/2screen">
-            <SearchBox getJobList={this.getJobList} />
+            <SearchBox getJobList={this.searchRequest} />
             <div className="box-warp office-box">
                 <table className="off-tab">
                     <thead>
@@ -68,7 +95,11 @@ class Recruit extends React.Component {
                         <td colSpan="4"><p className="load"><img src={loadGif} alt="数据demo" /><br />努力加载中</p></td>
                     </tr> 
                     </tfoot>
-                </table>  
+                </table>
+                <LoadMore
+                  show={this.state.loadMoreShow}
+                  useWindow={true}
+                  requestMore={this.loadMoreRequest}/>
             </div>
         </div>
         );

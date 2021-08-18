@@ -1,4 +1,3 @@
-import logo from '@/logo.svg';
 import React, { Suspense } from 'react';
 import '@/App.css';
 import '@/styles/base.css';
