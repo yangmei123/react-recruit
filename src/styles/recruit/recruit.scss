@@ -1,6 +1,8 @@
 @charset "UTF-8";
 .office-box {
+  overflow-y: scroll;
   padding-bottom: 20px;
+  height: 450px;
 }
 .off-tab {
   margin-top: 35px;

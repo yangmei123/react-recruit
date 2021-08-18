@@ -14,6 +14,7 @@ class LoadMore extends React.Component {
     // 滚动事件注册
     loadEvent() {
         const targetContent = this.props.useWindow ? window : this.getScrollParent();
+        console.log(targetContent);
         this.setState({
             targetContent
         });
@@ -22,7 +23,7 @@ class LoadMore extends React.Component {
     }
     // 获取加载所在控制的父级元素
     getScrollParent() {
-        return document.getElementById('loadMoreContent').parentElement() || window;
+        return document.getElementById('loadMoreContent').parentNode || window;
     }
     // 通知父组件已经触发加载更多事件
     loadMore = () => {

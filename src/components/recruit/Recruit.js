@@ -98,7 +98,7 @@ class Recruit extends React.Component {
                 </table>
                 <LoadMore
                   show={this.state.loadMoreShow}
-                  useWindow={true}
+                  useWindow={false}
                   requestMore={this.loadMoreRequest}/>
             </div>
         </div>
