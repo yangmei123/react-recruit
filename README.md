@@ -56,6 +56,18 @@ A：devServer: {
   contentBase: path.join(__dirname, "public"),
 }
 
+Q：github 开发提交，需要设置个人令牌。Support for password authentication was removed on August 13, 2021. Please use a personal access token instead
+
+A：
+* 按照步骤设置令牌Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations
+* 设置对应的用户名：git config user.name XXXXXXX
+* 设置对应的邮箱：git config user.email XXXXXXX
+* 设置远程提交的url带上私人令牌： git remote set-url origin https://$\(PATI\)@github.com/yangmei123/react-recruit.git
+
+Q： 若出现 LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 错误
+
+A：配置代理： git config --global --unset https.proxy
+
 ## Available Scripts
 
 In the project directory, you can run:
