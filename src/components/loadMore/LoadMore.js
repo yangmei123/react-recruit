@@ -51,10 +51,6 @@ class LoadMore extends React.Component {
         scrollTop = Math.ceil(document.scrollingElement[getHeightAttr.scrollTop]);
       }
       const isOnBottom = scrollHeight - scrollTop <= clientHeight;
-      console.log(scrollHeight);
-      console.log(scrollTop);
-      console.log(clientHeight);
-      console.log(isOnBottom);
       // 没到达滚动区域的底部或者上一个加载没结束就不要继续请求
       if (!isOnBottom || this.props.show) return false;
       this.props.requestMore();

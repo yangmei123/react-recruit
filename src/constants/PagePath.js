@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Recruit = React.lazy(() => import('@/components/recruit/Recruit'));
-const RecruitDetail = React.lazy(() => import('@/components/recruit/RecruitDetail'));
+const Recruit = React.lazy(() => import('@/pages/recruit/Recruit'));
+const RecruitDetail = React.lazy(() => import('@/pages/recruit/RecruitDetail'));
 
 export function recruit() {
     return {
