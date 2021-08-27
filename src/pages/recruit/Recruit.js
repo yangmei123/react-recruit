@@ -10,36 +10,37 @@ import '@/styles/recruit/recruit.scss';
 
 function Recruit() {
     const [page, setPage] = useState(1);
-    const [pageSize, setPageSize] = useState(1);
+    const [pageSize] = useState(10);
     const [keyWords, setKeyWord] = useState('');
     const [recruitList, setRecruitList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [loadMoreShow, setLoadMoreShow] = useState(true);
+    const [reset, setReset] = useState(true);
 
     useEffect(() => {
-        getJobList();
-        return () => {
-            loadMoreRequest();
-        };
-    }, []);
+        if ((reset && page === 1) || (!reset && page > 1)) {
+            getJobList();
+        }
+    }, [page, reset]);
     
+    // 关键字搜索
     const searchRequest = ({keyWord} = {}) => {
         setKeyWord(keyWord);
-        getJobList(keyWord, true);
+        setPage(1);
+        setReset(true);
     }
+    // 加载更多
     const loadMoreRequest = () => {
-        getJobList('', false, true);
+        setPage(page + 1);
+        setReset(false);
     }
-    const getJobList = (keyWord, reset = false, loadMore = false) => {
-        if (reset) {
-            setPage(1);
-            setPageSize(1);
-        }
-        // const { state: { page, pageSize, recruitList } } = this;
+    // 请求列表数据
+    const getJobList = () => {
+
         const params = {
-            keyWord,
+            keyWord: keyWords,
             pageSize,
-            page: loadMore ? page + 1 : page
+            page
         }
         if (params.page > 1) setLoadMoreShow(true);
         getRecruitList(params).then((res = {})=> {
@@ -54,19 +55,20 @@ function Recruit() {
             }, 5000);
         });
     }
+    // 列表Item
     const listDom = recruitList.map( (item, index) =>
-            <tr key={index}>
-                <td><span>{item.name}</span></td>
-                <td>{item.department}</td>
-                <td>{item.area}</td>
-                <td>
-                <HashRouter>
-                    <span className="btn-detail">
-                        <Link to={ `${recruitDetail().name}${item.id}` }>职位详情</Link>
-                    </span>
-                </HashRouter>
-                </td>
-            </tr>); 
+        <tr key={index}>
+            <td><span>{item.name}</span></td>
+            <td>{item.department}</td>
+            <td>{item.area}</td>
+            <td>
+            <HashRouter>
+                <span className="btn-detail">
+                    <Link to={ `${recruitDetail().name}${item.id}` }>职位详情</Link>
+                </span>
+            </HashRouter>
+            </td>
+        </tr>); 
 
     return (
         <div id="recruitPage" className="main 1/2screen">
