@@ -21,8 +21,8 @@ function Recruit() {
         if ((reset && page === 1) || (!reset && page > 1)) {
             getJobList();
         }
-    }, [page, reset]);
-    
+    }, [page, reset, keyWords]);
+
     // 关键字搜索
     const searchRequest = ({keyWord} = {}) => {
         setKeyWord(keyWord);
