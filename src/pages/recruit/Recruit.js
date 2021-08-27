@@ -15,24 +15,21 @@ function Recruit() {
     const [recruitList, setRecruitList] = useState([]);
     const [loading, setLoading] = useState(true);
     const [loadMoreShow, setLoadMoreShow] = useState(true);
-    const [reset, setReset] = useState(true);
 
     useEffect(() => {
-        if ((reset && page === 1) || (!reset && page > 1)) {
-            getJobList();
-        }
-    }, [page, reset, keyWords]);
+        getJobList();
+    }, [page, keyWords]);
 
     // 关键字搜索
     const searchRequest = ({keyWord} = {}) => {
         setKeyWord(keyWord);
         setPage(1);
-        setReset(true);
     }
     // 加载更多
     const loadMoreRequest = () => {
-        setPage(page + 1);
-        setReset(false);
+        if (!loading && !loadMoreShow) {
+            setPage(page + 1);
+        }
     }
     // 请求列表数据
     const getJobList = () => {
@@ -47,7 +44,7 @@ function Recruit() {
             const { data: { items, page: pageNum }} = res;
             const searchResultList = pageNum === 1 && params.page === 1 ? items : recruitList.concat(items);
             setRecruitList(searchResultList);
-            setPage(pageNum);
+            // setPage(pageNum); 
         }).finally(() => {
             setTimeout(() => {
                 setLoading(false);
